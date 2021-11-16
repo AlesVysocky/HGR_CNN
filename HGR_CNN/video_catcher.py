@@ -18,13 +18,13 @@ class VideoImageCatcher:
         
 
         self.__colorizer = rs.colorizer()
-        self.__colorizer.set_option(rs.option.visual_preset,1)
+        self.__colorizer.set_option(rs.option.visual_preset,3)
         self.__colorizer.set_option(rs.option.min_distance,0.2)
         self.__colorizer.set_option(rs.option.max_distance,1.05)
         self.__colorizer.set_option(rs.option.color_scheme, 2)
         self.__colorizer.set_option(rs.option.histogram_equalization_enabled,0)
         self.__filter_HF = rs.hole_filling_filter()
-        self.__filter_HF.set_option(rs.option.holes_fill, 3)
+        self.__filter_HF.set_option(rs.option.holes_fill, 1)
 
 
         try:

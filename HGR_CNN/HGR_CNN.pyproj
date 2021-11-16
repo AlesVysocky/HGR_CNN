@@ -30,7 +30,13 @@
     <Compile Include="mediapipe_demo.py">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="mp_recognizer.py">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="pointclouds_display.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="rs_utils.py">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="sim.py" />
@@ -49,6 +55,9 @@
     <Compile Include="image_data_manager.py" />
     <Compile Include="predictor_facade.py" />
     <Compile Include="simple_recognizer.py" />
+    <Compile Include="UDP_client.py">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="video_catcher.py" />
   </ItemGroup>
   <ItemGroup>
