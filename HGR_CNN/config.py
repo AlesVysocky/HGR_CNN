@@ -46,7 +46,7 @@ class Configuration():
         self.logs_dir = os.path.join(current_dir_path, "logs", self.version_name+f"_LR{self.learning_rate}_{date_time_str}")
         self.latest_model_path = os.path.join(self.models_dir, latest_model_name)
 
-        self.camera_image_dir = os.path.join(current_dir_path, os.pardir, "camera_image")
+        self.camera_image_dir = os.path.join(current_dir_path, os.pardir, "camera_image/1_ruka_rukavice_250")
         self.camera_RGB_dir = "RGB"
         self.camera_depth_dir = "Depth"
         self.camera_label_dir = "Labeled"
