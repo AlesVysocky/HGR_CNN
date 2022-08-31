@@ -47,7 +47,8 @@ class ModelWrapper():
             disable_gpu()
 
     def recompile(self):
-        self.model.compile(loss=dice_loss, optimizer=Adam(learning_rate=self.config.learning_rate), metrics=["binary_crossentropy",tf.keras.metrics.MeanIoU(num_classes=2)]) 
+        miou = tf.keras.metrics.MeanIoU(num_classes=2)
+        self.model.compile(loss=dice_loss, optimizer=Adam(learning_rate=self.config.learning_rate), metrics=["binary_crossentropy", miou,tf.keras.metrics.Precision(),tf.keras.metrics.Recall()])
 
     def save_model_graph_img(self):
         img_name = self.config.version_name+".png"
@@ -93,7 +94,10 @@ class ModelWrapper():
         c.msg(f"Model saved to: {model_path}")
     def evaluate(self,eval_gen,eval_steps):
         score = self.model.evaluate(eval_gen,steps=eval_steps)
-        c.msg("\nModel loss: " + str(score[0]) + "\nModel BC: " +str(score[1]) + "\nModel IoU: "+str(score[2]))
+        
+        c.msg("\nModel loss: " + str(score[0]) + " Model BC: " +str(score[1]) + " Model IoU: "+str(score[2])+ " Model Precision: "+str(score[3])+ " Model Recall: "+str(score[4]))
+        log_message = str(score[0]) + "," + str(score[1]) + "," + str(score[2]) + "," + str(score[3]) + "," + str(score[4])
+        return log_message
     def show(self,gen,a):
         for i in gen:
             cv2.imshow("data",i[0][0])

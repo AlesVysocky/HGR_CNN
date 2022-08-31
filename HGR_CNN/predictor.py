@@ -21,7 +21,8 @@ class Predictor:
             depth = self.image_manager.prepare_image(sim_mask)
             mask = self.image_manager.prepare_image(sim_mask)
             rgb = self.image_manager.prepare_image(image)
- 
+            self.image_manager.save_image(depth,"C:/dataset/test.png")
+            
             self.real_pos = b.find_blob(mask)
             predicted_mask = self.model.predict_single(depth)
 

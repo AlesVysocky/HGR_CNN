@@ -18,8 +18,8 @@ class VideoImageCatcher:
         
 
         self.__colorizer = rs.colorizer()
-        #self.__colorizer.set_option(rs.option.visual_preset,1) #D435
-        self.__colorizer.set_option(rs.option.visual_preset,3) #L515
+        self.__colorizer.set_option(rs.option.visual_preset,1) #D435
+        #self.__colorizer.set_option(rs.option.visual_preset,3) #L515
         self.__colorizer.set_option(rs.option.min_distance,0.2)
         self.__colorizer.set_option(rs.option.max_distance,1.05)
         self.__colorizer.set_option(rs.option.color_scheme, 2)
@@ -37,7 +37,7 @@ class VideoImageCatcher:
             self.intrinsics = profile.get_stream(rs.stream.depth).as_video_stream_profile().get_intrinsics()
             c_i = profile.get_stream(rs.stream.color).as_video_stream_profile().get_intrinsics() # c_i = [ 424x240  p[208.523 125.334]  f[306.708 306.833]  Inverse Brown Conrady [0 0 0 0 0] ]
             print("Depth Scale is: " , self.depth_scale) 
-            print(intrinsics)
+
             clipping_distance_in_meters = 1 #1 meter
             self.__clipping_distance = clipping_distance_in_meters / self.depth_scale
 
