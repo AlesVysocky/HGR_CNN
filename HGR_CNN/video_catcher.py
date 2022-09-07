@@ -34,12 +34,13 @@ class VideoImageCatcher:
             self.depth_scale = depth_sensor.get_depth_scale()
 
             self.intrinsics = profile.get_stream(rs.stream.depth).as_video_stream_profile().get_intrinsics()
-            print("Depth Scale is: " , self.depth_scale)
+            c_i = profile.get_stream(rs.stream.color).as_video_stream_profile().get_intrinsics() # c_i = [ 424x240  p[208.523 125.334]  f[306.708 306.833]  Inverse Brown Conrady [0 0 0 0 0] ]
+            print("Depth Scale is: " , self.depth_scale) 
 
             clipping_distance_in_meters = 1 #1 meter
             self.__clipping_distance = clipping_distance_in_meters / self.depth_scale
 
-            align_to = rs.stream.depth
+            align_to = rs.stream.color
             self.__align = rs.align(align_to)
             self.__streaming = True
             return True

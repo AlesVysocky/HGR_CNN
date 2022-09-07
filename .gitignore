@@ -258,6 +258,7 @@ ModelManifest.xml
 /HGR_CNN/testdata
 /dataset_old
 /HGR_CNN/env
+/HGR_CNN/logs_b/trash
 /coppelia/models
 /coppelia/dataset_generator.ttt
-/HGR_CNN/MediaPipeline/hand-gesture-recognition-mediapipe
+/coppelia/new_dataset_generator.ttt
