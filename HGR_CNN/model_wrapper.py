@@ -80,8 +80,8 @@ class ModelWrapper():
         history = self.model.fit(train_data_gen, validation_data=val_data_gen, 
                                   epochs = self.config.epochs_count, steps_per_epoch = train_steps, validation_steps = val_steps,
                                   max_queue_size=50,                # maximum size for the generator queue
-                                  workers=8,                        # maximum number of processes 
-                                  use_multiprocessing=True,         # use threading (maybe does not work on Win)
+                                  #workers=8,                        # maximum number of processes 
+                                  #use_multiprocessing=True,         # use threading (maybe does not work on Win)
                                   #shuffle=True does not work with generators that do not implement keras.utils.Sequence
                                   callbacks = [tensorboard, cp_callback, reduce_LR_callback])   
 
