@@ -15,8 +15,6 @@ class VideoImageCatcher:
         pipeline_config.enable_stream(rs.stream.depth, self.config.img_camera_size[0], self.config.img_camera_size[1], rs.format.z16, self.config.camera_rate)
         pipeline_config.enable_stream(rs.stream.color, self.config.img_camera_size[0], self.config.img_camera_size[1], rs.format.bgr8, self.config.camera_rate)
    
-        
-
         self.__colorizer = rs.colorizer()
         self.__colorizer.set_option(rs.option.visual_preset,3)
         self.__colorizer.set_option(rs.option.min_distance,0.2)
